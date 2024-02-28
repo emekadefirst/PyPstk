@@ -1,7 +1,7 @@
 import requests
 import json
 
-YOUR_SECRET_KEY = 'enter your secret key here'
+YOUR_SECRET_KEY = 'sk_test_2b514ab5752a617278f1460e22924c782e8f4999'
 
 class Paystack:
     def __init__(self, email, first_name, last_name, phone, secretkey):
