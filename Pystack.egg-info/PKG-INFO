@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: Pystack
+Version: 1.0.0
+Summary: Python SDK for interacting with the Paystack API
+Home-page: https://github.com/emekadefirst/Pystack
+Author: Victor Chibuogwu Chukwuemeka aka Emekadefirst
+Author-email: emekadefirst@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Dist: requests>=2.26.0

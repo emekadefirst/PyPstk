@@ -3,7 +3,7 @@ import json
 
 YOUR_SECRET_KEY = 'sk_test_2b514ab5752a617278f1460e22924c782e8f4999'
 
-class Paystack:
+class Customer:
     def __init__(self, email, first_name, last_name, phone, secretkey):
         self.email = email
         self.first_name = first_name
@@ -26,6 +26,4 @@ class Paystack:
         response = requests.post(url, headers=headers, data=json.dumps(data))
         return response.json()
 
-paystack = Paystack(email="customer@email.com", first_name="Zero", last_name="Sum", phone="+2348123456789", secretkey=YOUR_SECRET_KEY)
-response = paystack.create_customer()
-print(response)
+
