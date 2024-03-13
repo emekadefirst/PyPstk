@@ -1,7 +1,7 @@
 import json
 import http.client
 
-class Hook():
+class Verify():
     def __init__(self, reference, secret_key):
         self.reference = reference
         self.secret_key = secret_key
