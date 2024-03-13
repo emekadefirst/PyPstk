@@ -1,4 +1,4 @@
-# Pystack SDK
+# Pystack
 
 This Python package provides a set of classes to interact with the Paystack API for handling transactions, customers, subscriptions, and webhooks.
 
