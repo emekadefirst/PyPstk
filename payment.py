@@ -1,5 +1,5 @@
 import json
-import requests
+import http.client
 
 class PaystackTransactionInitializer:
     def __init__(self, email, amount, secret_key, ref_id=None, status=None):
@@ -11,58 +11,29 @@ class PaystackTransactionInitializer:
 
 class Pay(PaystackTransactionInitializer):    
     def initialize_transaction(self):
-        url = "https://api.paystack.co/transaction/initialize"
-        headers = {
-            "Authorization": "Bearer " + self.secret_key,
-            "Content-Type": "application/json"
-        }
+        url = "/transaction/initialize"
         data = {
             "email": self.email,
             "amount": self.amount
         }
-        response = requests.post(url, headers=headers, data=json.dumps(data))
-        
-        # Check for request success
-        if response.status_code == 200:
-            # Store the generated reference
-            self.ref_id = response.json()['data']['reference']
-            return response.json()
-        else:
-            # Handle errors gracefully
-            print("Error:", response.text)
-            return None
-    
-    def payment_status(self):
-        # Use the stored reference
-        if not self.ref_id:
-            print("Error: Reference not found")
-            return None
-        
-        url = f'https://api.paystack.co/transaction/verify/{self.ref_id}'
         headers = {
-            'Authorization': f'Bearer {self.secret_key}'
+            "Authorization": "Bearer " + self.secret_key,
+            "Content-Type": "application/json"
         }
-        response = requests.get(url, headers=headers)
-
+        response = self._http_request("POST", url, headers, json.dumps(data))
+        
         # Check for request success
-        if response.status_code == 200:
-            return response.json()
+        if response.status == 200:
+            response_data = json.loads(response.read().decode("utf-8"))  # Read response data
+            # Store the generated reference
+            self.ref_id = response_data['data']['reference']
+            return response_data
         else:
             # Handle errors gracefully
-            print("Error:", response.text)
+            print("Error:", response.reason)
             return None
-
-# Example usage
-secret_key = "sk_test_daf386e7071c4613e54e4b71f43926409abd811e"
-email = "customer@email.com"
-amount = "20000"
-
-# Initializing the transaction
-paystack_initializer = Pay(email, amount, secret_key)
-response = paystack_initializer.initialize_transaction()
-
-if response:
-    print(response)
-    payment_status = paystack_initializer.payment_status()
-    if payment_status:
-        print(payment_status)
+            
+    def _http_request(self, method, url, headers, body=None):
+        connection = http.client.HTTPSConnection("api.paystack.co")
+        connection.request(method, url, body, headers)
+        return connection.getresponse()
