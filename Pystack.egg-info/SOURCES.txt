@@ -1,7 +1,0 @@
-README.md
-setup.py
-Pystack.egg-info/PKG-INFO
-Pystack.egg-info/SOURCES.txt
-Pystack.egg-info/dependency_links.txt
-Pystack.egg-info/requires.txt
-Pystack.egg-info/top_level.txt
