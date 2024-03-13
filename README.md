@@ -1,4 +1,4 @@
-# Pystack SDK
+# Pystack
 
 This Python package provides a set of classes to interact with the Paystack API for handling transactions, customers, subscriptions, and webhooks.
 
@@ -7,7 +7,7 @@ This Python package provides a set of classes to interact with the Paystack API 
 To use this package, you need to have Python installed. You can install the package using pip:
 
 ```
-pip install paystack-python-sdk
+pip install pystack
 ```
 
 ## Usage
@@ -80,6 +80,7 @@ print(status)
 ## Contributors
 
 - [Emekadefirst](https://github.com/emekadefirst)
+- I used [Olabode](https://github.com/Olabode-cmd) template to test this in an api
 
 ## License
 
