@@ -12,7 +12,7 @@ class Verify():
             "Authorization": "Bearer " + self.secret_key
         }
         response = self._http_request("GET", url, headers)
-        response_text = response.read().decode("utf-8")  # Read response content
+        response_text = response.read().decode("utf-8") 
         print(response_text)
 
         if response.status == 200:
@@ -22,9 +22,6 @@ class Verify():
                 return "successful"
             elif gateway_response == "The transaction was not completed":
                 return "pending"
-            else:
-                return "failed"
-        else:
             return "failed"
     
     def _http_request(self, method, url, headers, body=None):

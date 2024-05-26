@@ -7,7 +7,6 @@ class Subscription:
         self.interval = interval
         self.amount = amount
         self.secret_key = secret_key
-        self.ref_id = None  # Initialize ref_id to None
         
     def initialize_payment(self):
         url = "https://api.paystack.co/plan"
@@ -26,7 +25,6 @@ class Subscription:
         response = requests.post(url, headers=headers, json=data)
         
         if response.status_code == 200:
-            # Store the reference ID
             self.ref_id = response.json()['data']['plan_code']
             print("Payment initialization successful. Reference ID:", self.ref_id)
         else:

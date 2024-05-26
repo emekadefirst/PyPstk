@@ -1,15 +1,13 @@
 import json
 import http.client
 
-class PaystackTransactionInitializer:
-    def __init__(self, email, amount, secret_key, ref_id=None, status=None):
+
+class Payment:
+    def __init__(self, email, amount, secret_key):
         self.email = email
         self.amount = amount
-        self.status = status
-        self.ref_id = ref_id
         self.secret_key = secret_key
-
-class Pay(PaystackTransactionInitializer):    
+            
     def initialize_transaction(self):
         url = "/transaction/initialize"
         data = {
@@ -22,14 +20,16 @@ class Pay(PaystackTransactionInitializer):
         }
         response = self._http_request("POST", url, headers, json.dumps(data))
         
-        # Check for request success
         if response.status == 200:
-            response_data = json.loads(response.read().decode("utf-8"))  # Read response data
-            # Store the generated reference
-            self.ref_id = response_data['data']['reference']
-            return response_data
+            response_data = json.loads(response.read().decode("utf-8"))
+            ref_id = response_data['data']['reference']
+            auth_url =  response_data['data']['authorization_url']
+            data = {
+                "references": ref_id,
+                "url": auth_url,
+            }
+            return data
         else:
-            # Handle errors gracefully
             print("Error:", response.reason)
             return None
             
