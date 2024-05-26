@@ -50,7 +50,7 @@ pay_subscription.payment_status()
 ### 4. Webhook
 
 ```python
-from webhook import Hook
+from status import Verify
 
 # Check webhook status
 reference = "YOUR_REFERENCE"
