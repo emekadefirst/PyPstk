@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
     description = f.read()
 
 setup(
-    name="Paystack-Python-2-SDK",
+    name="PythonPaystack",
     version="1.0.0",
     long_description= description,
     long_description_content_type= "text/markdown",
