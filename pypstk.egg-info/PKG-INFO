@@ -1,3 +1,16 @@
+Metadata-Version: 2.1
+Name: pypstk
+Version: 0.2.0
+Home-page: https://github.com/emekadefirst/Paystack-Python-2-SDK
+Author: Victor Chibuogwu Chukwuemeka aka Emekadefirst
+Author-email: emekadefirst@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LIcence
+Requires-Dist: requests>=2.26.0
+
 # Pystack
 
 This Python package provides a set of classes to interact with the Paystack API for handling transactions, customers, subscriptions, and webhooks.

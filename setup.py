@@ -5,8 +5,8 @@ with open("README.md", "r") as f:
     description = f.read()
 
 setup(
-    name="PythonPaystack",
-    version="1.0.0",
+    name="pypstk",
+    version="0.2.0",
     long_description= description,
     long_description_content_type= "text/markdown",
     author="Victor Chibuogwu Chukwuemeka aka Emekadefirst",
