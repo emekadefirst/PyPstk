@@ -30,22 +30,6 @@ print(transaction_data)
 # {'status': True, 'message': 'Authorization URL created', 'data': {'authorization_url': 'https://checkout.paystack.com/1hxv7un'}}
 ```
 
-### 2. Customer
-
-```python
-from customer import Paystack
-
-# Create a customer
-email = "customer@email.com"
-first_name = "Zero"
-last_name = "Sum"
-phone = "+2348123456789"
-secret_key = "sk_test_2b514ab5752a617278f1460e22924c782e8f4999"
-
-paystack = Paystack(email, first_name, last_name, phone, secret_key)
-response = paystack.create_customer()
-print(response)
-```
 
 ### 3. Subscription
 
